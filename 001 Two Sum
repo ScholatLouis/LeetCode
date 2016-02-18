@@ -6,6 +6,7 @@ public int[] twoSum(int[] sources, int target){
       //下标从1开始
       return new int{storedMap.get(target - sources[i]) + 1, i + 1};
     }
+    storedMap.put(sources[i], i);
   }
   return null;
 }
