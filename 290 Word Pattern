@@ -1,0 +1,36 @@
+```Java
+public boolean wordPattern(String pattern, String str){
+  //Character是char的封装类
+  //好比Integer是int的封装类
+  Map<Character,String> storedMap = new HashMap<Character,String>();
+  String strArray[] = str.split(" ");
+  
+  //pattern和str的长度不等
+  if(pattern.length() != strArray.length){
+    return false;
+  }
+  
+  //构建hashMap
+  for(int i = 0; i < pattern.length(); ++i){
+    //key不在storedMap中
+    if(!storedMap.containsKey(pattern.charAt(i))){
+      //key不在 value一样不在
+      if(!storedMap.containsValue(strArray[i])){
+        storedMap.put(pattern.charAt(i), strArray[i]);
+      } else {
+        //key不在 但是有相同的value在
+        storedMap.put(pattern.charAt(i), "");
+      }
+    }
+  }
+  
+  //逐一比较
+  for(int i = 0; i < pattern.length(); ++i){
+    if(!storedMap.get(pattern.charAt(i)).equals(strArray[i])){
+      return false;
+    }
+  }
+  
+  return true;
+}
+```
