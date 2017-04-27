@@ -1,4 +1,4 @@
-``` Java
+``` JavaScript
 public int[] twoSum(int[] sources, int target){
   Map<Integer, Integer> storedMap = new HashMap<Integer, Integer>();
   for(int i = 0; i < sources.length; ++i){
